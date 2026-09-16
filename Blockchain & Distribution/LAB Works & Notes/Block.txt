@@ -1,0 +1,20 @@
+##For Using UAP Coin First change path like this:
+--->Both in main.py and account.py
+sys.path.append(r"C:/Users/User/Downloads/UAP_Coin-main")
+
+#Setup step by step
+Remove-Item -Recurse -Force venv
+python -m venv venv
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+.\venv\Scripts\Activate.ps1
+python -m ensurepip --upgrade
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+
+python main.py
+
+#IF not work says Crypto not Found then
+python -m pip install pycryptodome
+python -m pip install -r requirements.txt
+-->USE it to check Crypto OK
+python -c "from Crypto.Hash import RIPEMD160; print('Crypto OK')" 
